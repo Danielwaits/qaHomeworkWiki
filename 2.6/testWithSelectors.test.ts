@@ -4,7 +4,7 @@ const chromedriver = require("chromedriver");
 
 const driver: WebDriver = new Builder().withCapabilities(Capabilities.chrome()).build();
 
-describe("Filling in the blanks", () => {
+describe("", () => {
     beforeEach(async () => {
         await driver.get('https://devmountain-qa.github.io/enter-wanted/1.4_Assignment/index.html')
     });
@@ -12,21 +12,22 @@ describe("Filling in the blanks", () => {
         await driver.quit();
     })
 
-    const hdrInput: By = By. //fill in the blank
-    const mkeInput: By = By. //fill in the blank
-    const oaiInput: By = By. //fill in the blank
-    const nameInput: By = By. //fill in the blank
-    const clrBtn: By = By. //fill in blank 
-    const submitBtn: By = By. //fill in blank
-    const errorMsg: By = By. // fill in blank 
+    const hdrInput: By = By.css('name = "hdrInput"]')
+    const mkeInput: By = By.xpath('//input[@name="mkeInput"]') 
+    const oaiInput: By = By.css('[name="oriInput"]')
+    const nameInput: By = By.xpath('(//input[@class="inputField"])[4]')
+    const clrBtn: By = By.id('clearBtn')
+    const submitBtn: By = By.id('saveBtn')
+    const errorMsg: By = By.id('validHeader')
 
-    test("filling in the blanks for real", () => {
-        await driver.findElement(hdrInput).sendKeys("Change this")
+    test("filling in the blanks for real", async () => {
+        await driver.findElement(hdrInput).sendKeys("Chaknge this")
         await driver.findElement(mkeInput).sendKeys("change this")
         await driver.findElement(oaiInput).sendKeys("change this")
         await driver.findElement(nameInput).sendKeys("change this")
         await driver.findElement(submitBtn).click()
-        expect(errorMsg).toContain("Errors Received:")
+        let errorHdr = awaits driver.findElement(errorMsg).getText()
+        expect(errorHdr).toContain("Errors Received:")
         await driver.findElement(clrBtn).click()
         
     })
