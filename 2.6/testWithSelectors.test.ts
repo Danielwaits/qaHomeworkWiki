@@ -21,7 +21,7 @@ describe("", () => {
     const errorMsg: By = By.id('validHeader')
 
     test("filling in the blanks for real", async () => {
-        await driver.findElement(hdrInput).sendKeys("Chaknge this")
+        await driver.findElement(hdrInput).sendKeys("Change this")
         await driver.findElement(mkeInput).sendKeys("change this")
         await driver.findElement(oaiInput).sendKeys("change this")
         await driver.findElement(nameInput).sendKeys("change this")
